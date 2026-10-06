@@ -1,7 +1,7 @@
-"""Milestone: basic multi-agent environment + FedAvg baseline (no trust, no attacks yet).
+"""Basic multi-agent environment + FedAvg baseline (no trust, no attacks yet).
 
-Loop per Section 40 of the execution plan (local_train -> aggregate -> evaluate),
-minus the trust/collaboration steps which are added next.
+Loop: local_train -> aggregate -> evaluate, minus the trust/collaboration
+steps which are added next.
 """
 import argparse
 import csv

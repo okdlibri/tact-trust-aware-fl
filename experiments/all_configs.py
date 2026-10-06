@@ -76,36 +76,36 @@ for momentum in MOMENTUM_VALUES:
             "out": out,
         }
 
-# --- Assignment across 3 workers, roughly proportional to measured speed
-# (V100 ~2.5x the local Quadro P2200 per round; two V100s + one P2200). ---
+# --- Assignment across 3 workers, roughly proportional to measured
+# per-worker speed (two fast workers, one slower one). ---
 GROUPS = {
-    "v100_0": [
+    "worker_fast_0": [
         "mvp_tact_seed0", "mvp_tact_seed1",
         "mvp_fedavg_seed0", "mvp_fedavg_seed1",
         "mvp_fedprox_seed0", "mvp_fedprox_seed1",
         "ablation_no_uq", "ablation_no_history",
         "bounded_tact_full",
     ],
-    "v100_1": [
+    "worker_fast_1": [
         "mvp_tact_seed2",
         "mvp_krum_seed0", "mvp_krum_seed1", "mvp_krum_seed2",
         "mvp_trimmedmean_seed0", "mvp_trimmedmean_seed1", "mvp_trimmedmean_seed2",
         "ablation_no_adaptation", "ablation_no_trust",
     ],
-    "p2200": [
+    "worker_slow": [
         "mvp_fedavg_seed2", "mvp_fedprox_seed2",
         "adaptive_alpha0.1",
         "bounded_tact_no_trust",
     ],
-    "momentum_v100_0": [
+    "momentum_worker_fast_0": [
         "momentum_m0.0_seed0", "momentum_m0.0_seed1",
         "momentum_m0.3_seed0", "momentum_m0.3_seed1",
     ],
-    "momentum_v100_1": [
+    "momentum_worker_fast_1": [
         "momentum_m0.0_seed2", "momentum_m0.3_seed2",
         "momentum_m0.5_seed0", "momentum_m0.5_seed1",
     ],
-    "momentum_p2200": [
+    "momentum_worker_slow": [
         "momentum_m0.5_seed2",
     ],
 }
